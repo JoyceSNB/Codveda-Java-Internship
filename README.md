@@ -2,7 +2,7 @@
 
 This repository contains the tasks completed during the Java Development Internship at **Codveda Technology**.
 
-As instructed, 2 out of 3 available tasks per level have been completed. Each task has its own `.java` file, grouped by level folder.
+The tasks are organized by internship level, with each task implemented as a standalone Java application.
 
 > **Note:** Tasks are implemented as GUI desktop applications using Java Swing, rather than plain console applications, to make the projects more presentable for the LinkedIn showcase video required by the internship submission guidelines. All core objectives from the original task list (input handling, required logic, error/edge case handling) are still fully implemented.
 
@@ -10,7 +10,7 @@ As instructed, 2 out of 3 available tasks per level have been completed. Each ta
 
 ### Level 1 - Basic → [`Level1_Basic/`](./Level1_Basic)
 - ✅ Task 1: [Basic Calculator](./Level1_Basic/Task1_BasicCalculator.java)
-- Task 2: Simple Number Guessing Game
+- ✅ Task 2: [Simple Number Guessing Game](./Level1_Basic/Task2_NumberGuessingGame.java)
 
 ### Level 2 - Intermediate → [`Level2_Intermediate/`](./Level2_Intermediate)
 - Task 1: Employee Management System
@@ -45,6 +45,35 @@ java Task1_BasicCalculator
 
 Alternatively, open this project directly in **VS Code** with the **"Extension Pack for Java"** extension installed, then click Run above the `main()` method of the file you want to execute.
 
+## Features
+
+#### Basic Calculator
+- Addition
+- Subtraction
+- Multiplication
+- Division
+- Input validation
+- Exception handling
+- GUI built with Java Swing
+
+#### Number Guessing Game
+- Random number generation
+- Seven-attempt limit
+- Too High / Too Low hints
+- Input validation
+- Restart game feature
+- Java Swing GUI
+
+## Screenshots
+
+### Basic Calculator
+
+![Basic Calculator](images/BasicCalculator.png)
+
+### Number Guessing Game
+
+![Number Guessing Game](images/NumberGuessingGame.png)
+
 ## Tech Stack
 
 - Java (Swing for GUI)
@@ -52,8 +81,9 @@ Alternatively, open this project directly in **VS Code** with the **"Extension P
 
 ## Author
 
-Joyce Stephanie Naibaho
-Java Development Intern - Codveda Technology
+**Joyce Stephanie Naibaho**
+
+Java Development Intern — Codveda Technology
 
 ## Tags
 `#CodvedaJourney` `#CodvedaExperience` `#FutureWithCodveda`
