@@ -17,7 +17,7 @@ As instructed, 2 out of 3 available tasks per level have been completed. Each ta
 - ✅ Task 2: [Simple Number Guessing Game](./Level1_Basic/Task2_NumberGuessingGame.java)
 
 ### Level 3 - Advanced → [`Level3_Advanced/`](./Level3_Advanced)
-- Task 1: Library Management System with JDBC
+- ✅ Task 1: [Library Management System with JDBC](./Level3_Advanced/Task1_LibraryManagementSystem.java)
 - Task 2: Multithreaded Chat Application
 
 ## Task Details
@@ -48,6 +48,16 @@ A text file analyzer that reads a file, processes its contents, and writes the r
 
 A file can be chosen with the Browse dialog or typed by hand, which makes the `FileNotFoundException` path easy to demonstrate. A `sample.txt` file is included for testing.
 
+### Level 3 · Task 1 — Library Management System with JDBC
+A three-tab desktop application (Books, Users, Loans) backed by a MySQL database.
+
+- **Database** — three tables in [`schema.sql`](./Level3_Advanced/schema.sql): `books`, `users`, and `transactions`. The `transactions` table links books to borrowers, with foreign keys to both.
+- **CRUD** — books and users are created, read, updated, and deleted through `PreparedStatement` queries, never string concatenation, so input like `O'Reilly` is handled safely.
+- **Transactions** — borrowing and returning each touch two tables, so both run inside a single database transaction: they commit together or roll back together. `SELECT ... FOR UPDATE` locks the book row so the same last copy cannot be borrowed twice.
+- **Error handling** — a duplicate ISBN, a broken connection, and deleting a record with loan history each produce a clear, specific message instead of a raw stack trace.
+
+Requires a running MySQL server and the MySQL Connector/J driver (bundled in the folder). See **How to Run** below.
+
 ## How to Run
 
 Each file is a standalone GUI program with its own `main()` method.
@@ -64,6 +74,26 @@ java Task2_FileHandling
 ```
 
 Alternatively, open this project directly in **VS Code** with the **"Extension Pack for Java"** extension installed, then click Run above the `main()` method of the file you want to execute.
+
+### Level 3 Task 1 — additional setup
+
+This task needs a running MySQL server and the MySQL Connector/J driver.
+
+```bash
+# 1. Create the database (drops and recreates library_db)
+mysql -u root -p < Level3_Advanced/schema.sql
+
+# 2. Set DB_USER and DB_PASSWORD near the top of the .java file
+
+# 3. Compile and run with the driver on the classpath
+#    Windows Command Prompt:
+javac -cp ".;mysql-connector-j-9.7.0.jar" Task1_LibraryManagementSystem.java
+java  -cp ".;mysql-connector-j-9.7.0.jar" Task1_LibraryManagementSystem
+
+#    PowerShell — wrap the classpath in single quotes:
+#    javac -cp '.;mysql-connector-j-9.7.0.jar' Task1_LibraryManagementSystem.java
+#    java  -cp '.;mysql-connector-j-9.7.0.jar' Task1_LibraryManagementSystem
+```
 
 ## Features
 
@@ -100,6 +130,14 @@ Alternatively, open this project directly in **VS Code** with the **"Extension P
 - Handles FileNotFoundException and IOException
 - Java Swing GUI with file chooser
 
+#### Library Management System (JDBC)
+- MySQL database via JDBC
+- CRUD for books and users
+- Borrow and return with database transactions
+- Row locking to prevent double-borrowing
+- Clear error messages for constraint and connection failures
+- Java Swing GUI with three tabs
+
 ## Screenshots
 
 ### Basic Calculator
@@ -117,6 +155,10 @@ Alternatively, open this project directly in **VS Code** with the **"Extension P
 ### File Handling
 
 ![File Handling](images/FileHandling.png)
+
+### Library Management System
+
+![Library Management System](images/LibraryManagementSystem.png)
 
 ## Tech Stack
 
