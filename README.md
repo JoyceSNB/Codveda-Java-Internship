@@ -14,7 +14,7 @@ As instructed, 2 out of 3 available tasks per level have been completed. Each ta
 
 ### Level 2 - Intermediate → [`Level2_Intermediate/`](./Level2_Intermediate)
 - ✅ Task 1: [Employee Management System](./Level2_Intermediate/Task1_EmployeeManagementSystem.java)
-- Task 2: File Handling - Reading and Writing to a File
+- ✅ Task 2: [Simple Number Guessing Game](./Level1_Basic/Task2_NumberGuessingGame.java)
 
 ### Level 3 - Advanced → [`Level3_Advanced/`](./Level3_Advanced)
 - Task 1: Library Management System with JDBC
@@ -38,6 +38,16 @@ Full CRUD over an in-memory `ArrayList<Employee>`, displayed in a `JTable`.
 
 Employee data is encapsulated in an `Employee` class with private fields and getter/setter methods. A CSV export feature is included as an extra.
 
+### Level 2 · Task 2 — File Handling
+A text file analyzer that reads a file, processes its contents, and writes the result to a new file.
+
+- **Read** — a `BufferedReader` over a `FileReader` streams the file line by line, so the whole file is never held in memory at once.
+- **Process** — counts lines, words, characters (with and without spaces), unique words, the longest word, and the ten most frequent words.
+- **Write** — a `PrintWriter` over a `FileWriter` saves a formatted report to a new file, with an overwrite confirmation if the target already exists.
+- **Exceptions** — `FileNotFoundException` is caught separately from the broader `IOException`, and both reader and writer use try-with-resources.
+
+A file can be chosen with the Browse dialog or typed by hand, which makes the `FileNotFoundException` path easy to demonstrate. A `sample.txt` file is included for testing.
+
 ## How to Run
 
 Each file is a standalone GUI program with its own `main()` method.
@@ -47,10 +57,10 @@ Each file is a standalone GUI program with its own `main()` method.
 cd Level2_Intermediate
 
 # Compile
-javac Task1_EmployeeManagementSystem.java
+javac Task2_FileHandling.java
 
 # Run
-java Task1_EmployeeManagementSystem
+java Task2_FileHandling
 ```
 
 Alternatively, open this project directly in **VS Code** with the **"Extension Pack for Java"** extension installed, then click Run above the `main()` method of the file you want to execute.
@@ -82,6 +92,14 @@ Alternatively, open this project directly in **VS Code** with the **"Extension P
 - CSV export
 - Java Swing GUI with JTable
 
+#### File Handling
+- Reads a text file line by line
+- Counts lines, words, and characters
+- Finds unique words and word frequency
+- Writes a formatted report to a new file
+- Handles FileNotFoundException and IOException
+- Java Swing GUI with file chooser
+
 ## Screenshots
 
 ### Basic Calculator
@@ -95,6 +113,10 @@ Alternatively, open this project directly in **VS Code** with the **"Extension P
 ### Employee Management System
 
 ![Employee Management System](images/EmployeeManagementSystem.png)
+
+### File Handling
+
+![File Handling](images/FileHandling.png)
 
 ## Tech Stack
 
