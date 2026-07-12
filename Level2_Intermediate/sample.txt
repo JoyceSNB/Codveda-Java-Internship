@@ -1,0 +1,24 @@
+The Internet of Things, often shortened to IoT, describes a network
+of physical devices that exchange data over the internet. Sensors
+collect information about the world, and actuators change something
+about that world in response.
+
+A water quality monitoring system is a clear example. Sensors read
+temperature, pH, ammonia, and turbidity. The data travels to a broker,
+gets stored in a time series database, and appears on a dashboard.
+When the data crosses a threshold, an actuator responds: a heater
+switches on, or a valve opens.
+
+The interesting part is not the sensors. The interesting part is the
+decision logic sitting between the sensors and the actuators. A simple
+threshold is brittle. Real water does not behave like a step function.
+It drifts, it fluctuates, and a reading that is fine at noon may be a
+problem at midnight.
+
+This is why fuzzy logic is useful. Instead of asking whether the water
+is good or bad, fuzzy logic asks how good and how bad, and how much
+each answer should matter. The result is a system that responds the way
+a careful person would respond, rather than the way a thermostat does.
+
+Data alone is not knowledge. Knowledge is what happens when data meets
+a decision, and a decision meets the world.
