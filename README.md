@@ -1,8 +1,6 @@
 # Codveda Java Development Internship
 
-This repository contains the tasks completed during the Java Development Internship at **Codveda Technology**.
-
-As instructed, 2 out of 3 available tasks per level have been completed. Each task has its own `.java` file, grouped by level folder.
+This repository contains all tasks completed during the Java Development Internship at **Codveda Technology**. Each task is implemented as a standalone `.java` file and organized into folders based on its respective level.
 
 > **Note:** Tasks are implemented as GUI desktop applications using Java Swing, rather than plain console applications, to make the projects more presentable for the LinkedIn showcase video required by the internship submission guidelines. All core objectives from the original task list (input handling, required logic, error/edge case handling) are still fully implemented.
 
@@ -18,7 +16,7 @@ As instructed, 2 out of 3 available tasks per level have been completed. Each ta
 
 ### Level 3 - Advanced → [`Level3_Advanced/`](./Level3_Advanced)
 - ✅ Task 1: [Library Management System with JDBC](./Level3_Advanced/Task1_LibraryManagementSystem.java)
-- Task 2: Multithreaded Chat Application
+- ✅ Task 2: [Multithreaded Chat Application](./Level3_Advanced/Task2_MultithreadedChat.java)
 
 ## Task Details
 
@@ -58,6 +56,14 @@ A three-tab desktop application (Books, Users, Loans) backed by a MySQL database
 
 Requires a running MySQL server and the MySQL Connector/J driver (bundled in the folder). See **How to Run** below.
 
+### Level 3 · Task 2 — Multithreaded Chat Application
+A chat server and client in one file, launched from a small menu so a single JVM can host the server and several clients side by side.
+
+- **Sockets** — `ChatServer` owns a `ServerSocket`; `ChatClient` owns a `Socket`. They exchange newline-delimited UTF-8 text.
+- **Threads** — the accept loop runs on its own thread, and every connected client is handled on a separate thread, so several people can chat at the same time.
+- **Broadcast** — every message, join, and departure is sent to all connected clients. The client list is a `CopyOnWriteArrayList` so broadcasting is safe while clients connect and disconnect.
+- **Design** — the server window is an operator console (colour-coded log, live client roster, message counter); the client window is a chat app (message bubbles, per-user colour, a Leave button).
+
 ## How to Run
 
 Each file is a standalone GUI program with its own `main()` method.
@@ -94,6 +100,15 @@ java  -cp ".;mysql-connector-j-9.7.0.jar" Task1_LibraryManagementSystem
 #    javac -cp '.;mysql-connector-j-9.7.0.jar' Task1_LibraryManagementSystem.java
 #    java  -cp '.;mysql-connector-j-9.7.0.jar' Task1_LibraryManagementSystem
 ```
+### Level 3 Task 2 — trying the chat
+
+```bash
+cd Level3_Advanced
+javac Task2_MultithreadedChat.java
+java Task2_MultithreadedChat
+```
+
+Press **Start server** first, then return to the launcher, enter a username, and press **Join as client**. Repeat with a second username to see a message broadcast to every window at once.
 
 ## Features
 
@@ -138,6 +153,14 @@ java  -cp ".;mysql-connector-j-9.7.0.jar" Task1_LibraryManagementSystem
 - Clear error messages for constraint and connection failures
 - Java Swing GUI with three tabs
 
+#### Multithreaded Chat Application
+- Client-server over Java Sockets
+- One thread per connected client
+- Real-time message broadcast
+- Live client roster on the server
+- Join / leave notifications
+- Java Swing GUI
+
 ## Screenshots
 
 ### Basic Calculator
@@ -160,10 +183,23 @@ java  -cp ".;mysql-connector-j-9.7.0.jar" Task1_LibraryManagementSystem
 
 ![Library Management System](images/LibraryManagementSystem.png)
 
+### Multithreaded Chat Application
+
+![Multithreaded Chat Application](images/MultitreadedChatApplication.png)
+
+#### Server Console
+![Server Console](images/JoinAsServer.png)
+
+#### Client Window
+![Client Window](images/JoinAsClient1.png)
+![Client Window](images/JoinAsClient1.png)
+
 ## Tech Stack
 
-- Java (Swing for GUI)
-- No external dependencies — runs with a standard JDK installation
+- Java (Swing for GUI, Sockets and threads for the chat)
+- MySQL with JDBC (Level 3 Task 1)
+- MySQL Connector/J — bundled in `Level3_Advanced/`
+- Every other task runs with a standard JDK installation and no dependencies
 
 ## Author
 
