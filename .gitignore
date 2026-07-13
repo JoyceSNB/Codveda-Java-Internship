@@ -19,6 +19,10 @@
 *.tar.gz
 *.rar
 
+# Exception: the MySQL JDBC driver is required to run Level 3 Task 1,
+# so it is committed with the project rather than downloaded separately.
+!Level3_Advanced/mysql-connector-j-*.jar
+
 # VS Code
 .vscode/
 bin/
